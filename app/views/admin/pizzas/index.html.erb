@@ -25,6 +25,7 @@
       <th><%= sort_link(@q, :name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= sort_link(@q, :price) %></th>
+      <th><%= model_class.human_attribute_name(:image) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= model_class.human_attribute_name(:updated_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -37,6 +38,7 @@
         <td><%= pizza.name %></td>
         <td><%= pizza.description %></td>
         <td><%= pizza.price %></td>
+        <td><%= image_tag pizza.image, size:"120" %></td>
         <td><%=l pizza.created_at %></td>
         <td><%=l pizza.updated_at %></td>
         <td>

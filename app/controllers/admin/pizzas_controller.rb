@@ -9,6 +9,10 @@ class Admin::PizzasController < ApplicationController
 		@pizzas = @q.result
 	end
 
+	def show
+		
+	end
+
 	def new
 		@pizza = Pizza.new		
 	end
@@ -46,6 +50,6 @@ class Admin::PizzasController < ApplicationController
 	end
 
 	def pizza_params
-		params.require(:pizza).permit(:name, :description, :price)		
+		params.require(:pizza).permit(:name, :description, :price, :image)		
 	end
 end

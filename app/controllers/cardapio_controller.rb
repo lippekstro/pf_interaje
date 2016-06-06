@@ -1,4 +1,5 @@
 class CardapioController < ApplicationController
+
 	before_action :set_pizza, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -7,6 +8,10 @@ class CardapioController < ApplicationController
 
 	def new
 		@pizza = Pizza.new		
+	end
+
+	def show
+		
 	end
 
 	def create
@@ -42,6 +47,7 @@ class CardapioController < ApplicationController
 	end
 
 	def pizza_params
-		params.require(:pizza).permit(:name, :description, :price)		
+		params.require(:pizza).permit(:name, :description, :price, :image)		
 	end
+
 end
