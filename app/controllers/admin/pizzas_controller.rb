@@ -1,6 +1,5 @@
-class Admin::PizzasController < ApplicationController
+class Admin::PizzasController < AdminController
 	
-	before_action :authenticate_user!
 	before_action :set_pizza, only: [:show, :edit, :update, :destroy]
 
 	def index
