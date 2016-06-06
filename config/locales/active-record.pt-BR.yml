@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      pizza: Pizza
+      
+    attributes:
+      pizza:
+        name: 'Nome'
+        description: Descricao
+        price: Preco
+        created_at: Cadastrado Em
+        updated_at: Atualizado Em
+
+      

@@ -1,0 +1,28 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+    	<h3 class="panel-title text-center">Cardapio</h3>
+  	</div>
+<div class="panel-body">
+	
+<% @pizzas.each do |c| %>
+
+  <div class="media">   		
+      
+      <figure class="pull-left">
+      	<%= image_tag("pizza.jpg", width: "120px", height: "120px", class: "media-object") %>
+    	</figure>
+  		
+      <div class="media-body well">
+    		<h4 class="media-heading"> <%= c.name.capitalize %> </h4>
+    		
+        <p> <%= c.description %> </p> 
+        
+        <p> Preco:   <%= number_to_currency(c.price) %> </p>
+  		</div>
+	
+  </div>
+
+<% end %>
+<%= paginate @pizzas %>
+</div>
+</div>

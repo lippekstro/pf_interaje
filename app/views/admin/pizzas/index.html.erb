@@ -1,0 +1,55 @@
+<%- model_class = Pizza -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+<div>
+  <div class="pull-right">
+    <%= search_form_for [:admin, @q] do |f| %>
+      <%= f.label :name %>
+      <%= f.search_field :name_cont %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to t('.new', :default => t("helpers.links.new")), new_admin_pizza_path, :class => 'btn btn-primary' %> 
+  </div>
+</div>
+
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= sort_link(@q, :name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= sort_link(@q, :price) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:updated_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pizzas.each do |pizza| %>
+      <tr>
+        <td><%= pizza.id%></td>
+        <td><%= pizza.name %></td>
+        <td><%= pizza.description %></td>
+        <td><%= pizza.price %></td>
+        <td><%=l pizza.created_at %></td>
+        <td><%=l pizza.updated_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admin_pizza_path(pizza), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admin_pizza_path(pizza),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

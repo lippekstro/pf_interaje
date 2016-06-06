@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @pizza], :html => { :class => 'form-vertical' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_pizzas_path, :class => 'btn btn-default' %>
+<% end %>
