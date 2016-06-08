@@ -1,0 +1,35 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title text-center">Delivery</h3>
+	</div>
+
+	<div class="panel-body">
+		<h3 class="text-center">Como deseja sua pizza?</h2>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h4>Tamanho</h3>
+			</div>
+
+			<div class="panel-body">
+				<%= simple_form_for @order, :html => { :class => 'form-vertical' } do |f| %>
+				
+				<%= f.association :size, label: false, as: :radio_buttons, collection: Size.all.order(name: :asc).map {|m| [m.name, m.id]} %>
+
+				<% end %>
+			</div>
+		</div>
+				<%= simple_form_for @order, :html => { :class => 'form-vertical' } do |f| %>
+				<%= f.input :border%>
+				<% end %>
+	</div>
+</div>
+<!--<%= simple_form_for @order, :html => { :class => 'form-vertical' } do |f| %>
+  <%= f.input :border %>
+  <%= f.association :size, as: :check_boxes, collection: Size.all.order(name: :asc).map {|m| [m.name, m.id]} %>
+  -->
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_pizzas_path, :class => 'btn btn-default' %>
+<!--<% end %>

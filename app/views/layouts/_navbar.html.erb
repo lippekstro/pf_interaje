@@ -5,8 +5,9 @@
 
       <% if user_signed_in? -%>
         <li><%= menu_item "Pizzas", "/admin/pizzas" %></li>
+        <li><%= menu_item "Tamanhos", "/admin/sizes" %></li>
       <% end -%>
-      <li><%= menu_item "Delivery", "/" %></li>
+      <li><%= menu_item "Delivery", "/delivery/new" %></li>
       <li><%= menu_item "Quem Somos", "/about_us" %></li>
 
   <% end -%>

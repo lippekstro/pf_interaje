@@ -2,13 +2,20 @@ pt-BR:
   activerecord:
     models:
       pizza: Pizza
+      size: Tamanho
+      order: Pedido
       
     attributes:
       pizza:
-        name: 'Nome'
+        name: Nome
         description: Descricao
         price: Preco
         created_at: Cadastrado Em
         updated_at: Atualizado Em
-
-      
+      size:
+        name: 'Nome'
+        slices_number: Numero de Fatias
+        created_at: Cadastrado Em
+        updated_at: Atualizado Em
+      order:
+        border: Com Borda?

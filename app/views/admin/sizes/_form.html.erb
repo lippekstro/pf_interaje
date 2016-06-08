@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @size], :html => { :class => 'form-vertical' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :slices_number %>
+  
+  
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_sizes_path, :class => 'btn btn-default' %>
+<% end %>
